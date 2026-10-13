@@ -7,8 +7,7 @@
       <form [formGroup]="form" (ngSubmit)="submit()" [attr.aria-label]="'reservation.new-title' | translate">
         <mat-form-field appearance="outline">
           <mat-label>{{ 'reservation.activity-type' | translate }}</mat-label>
-          <mat-select formControlName="activityType" required
-                      [attr.aria-label]="'reservation.activity-type' | translate">
+          <mat-select formControlName="activityType" [attr.aria-label]="'reservation.activity-type' | translate">
             @for (activityType of store.activityTypes(); track activityType) {
               <mat-option [value]="activityType">{{ 'activity-type.' + activityType | translate }}</mat-option>
             }
@@ -18,72 +17,47 @@
           }
         </mat-form-field>
 
-        @if (selectedSummary; as summary) {
-          <div class="center-info" role="status" aria-live="polite">
-            <p>
-              <mat-icon aria-hidden="true">landscape</mat-icon>
-              <strong>{{ summary.outdoorCenter.name }}</strong>
-            </p>
-            <p>
-              <mat-icon aria-hidden="true">groups</mat-icon>
-              {{ 'reservation.available-capacity' | translate }}: {{ summary.availableCapacity }}
-            </p>
-            <p>
-              <mat-icon aria-hidden="true">thermostat</mat-icon>
-              {{ 'reservation.weather-temperature' | translate }}:
-              @if (weatherStore.loading()) {
-                {{ 'reservation.loading-weather' | translate }}
-              } @else if (weatherStore.currentWeather(); as currentWeather) {
-                {{ currentWeather.temperature | number: '1.1-1' }} {{ currentWeather.temperatureUnit }}
-              }
-            </p>
-          </div>
-        }
-        @if (weatherStore.error()) {
-          <mat-error role="alert">{{ weatherStore.error() }}</mat-error>
+        @if (form.controls.activityType.value) {
+          <p role="status">
+            {{ 'reservation.available-capacity' | translate }}: {{ availableCapacity }}
+            <br/>
+            {{ 'reservation.weather-temperature' | translate }}:
+            {{ weatherStore.currentWeather()?.temperature }} °C
+          </p>
         }
 
         <mat-form-field appearance="outline">
           <mat-label>{{ 'reservation.participant-name' | translate }}</mat-label>
-          <input matInput formControlName="participantName" required maxlength="60"
+          <input matInput formControlName="participantName"
                  [attr.aria-label]="'reservation.participant-name' | translate"/>
-          @if (hasControlError(form, 'participantName', 'required') || hasControlError(form, 'participantName', 'pattern')) {
+          @if (isInvalidControl(form, 'participantName')) {
             <mat-error>{{ 'reservation.error.participant-name-required' | translate }}</mat-error>
-          } @else if (hasControlError(form, 'participantName', 'maxlength')) {
-            <mat-error>{{ 'reservation.error.participant-name-length' | translate }}</mat-error>
           }
         </mat-form-field>
 
         <mat-form-field appearance="outline">
           <mat-label>{{ 'reservation.participants' | translate }}</mat-label>
-          <input matInput type="number" min="1" step="1" formControlName="participants" required
+          <input matInput type="number" min="1" formControlName="participants"
                  [attr.aria-label]="'reservation.participants' | translate"/>
-          @if (hasControlError(form, 'participants', 'required')) {
-            <mat-error>{{ 'reservation.error.participants-required' | translate }}</mat-error>
-          } @else if (hasControlError(form, 'participants', 'min') || hasControlError(form, 'participants', 'pattern')) {
+          @if (isInvalidControl(form, 'participants')) {
             <mat-error>{{ 'reservation.error.participants-positive' | translate }}</mat-error>
-          } @else if (hasControlError(form, 'participants', 'exceedsCapacity')) {
-            <mat-error>{{ 'reservation.error.participants-capacity' | translate }}</mat-error>
           }
         </mat-form-field>
 
+        @if (exceedsCapacity) {
+          <mat-error role="alert">{{ 'reservation.error.participants-capacity' | translate }}</mat-error>
+        }
         @if (store.error()) {
           <mat-error role="alert">{{ store.error() }}</mat-error>
         }
 
         <div class="actions">
-          <button mat-stroked-button type="button" (click)="cancel()"
-                  [attr.aria-label]="'reservation.cancel' | translate">
+          <button mat-stroked-button type="button" (click)="navigateToHome()">
             {{ 'reservation.cancel' | translate }}
           </button>
-          <button mat-flat-button color="primary" type="submit"
-                  [disabled]="form.invalid || store.loading() || !weatherStore.currentWeather()"
-                  [attr.aria-label]="'reservation.create' | translate">
+          <button mat-flat-button type="submit" [disabled]="form.invalid || exceedsCapacity">
             {{ 'reservation.create' | translate }}
           </button>
-          @if (store.loading()) {
-            <mat-spinner diameter="24"></mat-spinner>
-          }
         </div>
       </form>
     </mat-card-content>

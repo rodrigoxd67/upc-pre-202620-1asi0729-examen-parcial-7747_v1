@@ -4,13 +4,11 @@
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-  border-radius: 16px;
 }
 
 .summary-header {
   background-color: #d8f3dc;
   padding-bottom: 12px;
-  border-radius: 16px 16px 0 0;
 }
 
 .summary-content {
@@ -21,40 +19,11 @@
 .empty {
   text-align: center;
   margin-top: 32px;
-  color: #757575;
-}
-
-.participants {
-  font-weight: 700;
-  color: #2d6a4f;
 }
 
 .summary-footer {
   display: flex;
   justify-content: space-around;
   padding: 12px;
-}
-
-.indicator {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.indicator-value {
-  font-size: 1.5rem;
-  font-weight: 800;
-  color: #1b4332;
-}
-
-.available {
-  color: #e76f51;
-}
-
-.full {
-  color: #c62828;
-}
-
-.indicator-label {
-  font-size: 0.8rem;
+  font-weight: 700;
 }

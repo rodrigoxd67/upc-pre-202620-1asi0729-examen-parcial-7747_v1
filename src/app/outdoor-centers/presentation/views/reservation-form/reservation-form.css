@@ -1,6 +1,5 @@
 .form-card {
   max-width: 600px;
-  border-radius: 16px;
 }
 
 form {
@@ -10,26 +9,8 @@ form {
   padding-top: 16px;
 }
 
-.center-info {
-  background-color: #d8f3dc;
-  border-radius: 12px;
-  padding: 8px 16px;
-}
-
-.center-info p {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin: 8px 0;
-}
-
-.center-info mat-icon {
-  color: #2d6a4f;
-}
-
 .actions {
   display: flex;
-  align-items: center;
   gap: 12px;
   justify-content: flex-end;
 }

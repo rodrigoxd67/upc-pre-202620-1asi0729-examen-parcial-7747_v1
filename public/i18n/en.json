@@ -38,16 +38,12 @@
     "participants": "participants",
     "available-capacity": "available capacity",
     "weather-temperature": "current temperature",
-    "loading-weather": "loading weather",
     "create": "create",
     "cancel": "cancel",
-    "created": "reservation for {{ name }} registered",
-    "close": "close",
+    "created": "reservation registered",
     "error": {
       "activity-type-required": "activity type is required",
       "participant-name-required": "participant name is required",
-      "participant-name-length": "participant name must have at most 60 characters",
-      "participants-required": "participants is required",
       "participants-positive": "participants must be a positive integer",
       "participants-capacity": "participants exceed the available capacity"
     }

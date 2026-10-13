@@ -1,8 +1,6 @@
 import { Component, input } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
-import { MatIconModule } from '@angular/material/icon';
-import { MatDividerModule } from '@angular/material/divider';
 import { TranslatePipe } from '@ngx-translate/core';
 import { OutdoorCenterSummary as Summary } from '../../../domain/model/outdoor-center-summary';
 
@@ -12,7 +10,7 @@ import { OutdoorCenterSummary as Summary } from '../../../domain/model/outdoor-c
  */
 @Component({
   selector: 'app-outdoor-center-summary',
-  imports: [MatCardModule, MatListModule, MatIconModule, MatDividerModule, TranslatePipe],
+  imports: [MatCardModule, MatListModule, TranslatePipe],
   templateUrl: './outdoor-center-summary.html',
   styleUrl: './outdoor-center-summary.css',
 })
