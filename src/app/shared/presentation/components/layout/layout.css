@@ -1,0 +1,40 @@
+.mat-spacer {
+  flex: 1 1 auto;
+}
+
+.logo {
+  height: 40px;
+  width: 40px;
+  margin: 0 12px 0 4px;
+}
+
+.toolbar-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sidenav-container {
+  height: calc(100% - 64px);
+}
+
+.sidenav {
+  width: 240px;
+}
+
+.active-link {
+  background-color: #d8f3dc;
+  font-weight: 700;
+}
+
+@media (max-width: 599px) {
+  .sidenav-container {
+    height: calc(100% - 56px);
+  }
+
+  .toolbar-title {
+    font-size: 0.9rem;
+  }
+}

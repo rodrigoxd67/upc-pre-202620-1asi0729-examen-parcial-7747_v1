@@ -1,1 +1,23 @@
-{}
+{
+  "toolbar": {
+    "title": "trailgo outdoor center management platform",
+    "logo-alt": "trailgo outdoor centers logo",
+    "toggle-menu": "toggle navigation menu",
+    "navigation": "main navigation",
+    "language": "preferred language"
+  },
+  "option": {
+    "home": "home",
+    "new-reservation": "new reservation"
+  },
+  "home": {
+    "title": "home",
+    "content": "smart reservations and capacity management for outdoor centers.",
+    "my-outdoor-centers": "my outdoor centers"
+  },
+  "page-not-found": {
+    "title": "page not found",
+    "content": "the path <strong>/{{ invalid_path }}</strong> was not found",
+    "go-home": "back to home"
+  }
+}

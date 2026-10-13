@@ -1,0 +1,9 @@
+<section class="container-with-spacing page-not-found" role="alert" aria-labelledby="page-not-found-title">
+  <mat-icon class="icon" aria-hidden="true">report</mat-icon>
+  <h1 id="page-not-found-title" class="title">{{ 'page-not-found.title' | translate }}</h1>
+  <p [innerHTML]="'page-not-found.content' | translate: { invalid_path: invalidPath }"></p>
+  <button mat-raised-button color="primary" (click)="navigateToHome()"
+          [attr.aria-label]="'page-not-found.go-home' | translate">
+    {{ 'page-not-found.go-home' | translate }}
+  </button>
+</section>

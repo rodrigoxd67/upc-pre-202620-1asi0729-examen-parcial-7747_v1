@@ -1,0 +1,38 @@
+<mat-toolbar role="banner">
+  <mat-toolbar-row>
+    <button mat-icon-button (click)="sidenav.toggle()" [attr.aria-label]="'toolbar.toggle-menu' | translate">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <img class="logo" src="assets/trailgo-logo.svg" [alt]="'toolbar.logo-alt' | translate"/>
+    <h1 class="toolbar-title">{{ 'toolbar.title' | translate }}</h1>
+    <div class="mat-spacer"></div>
+    <app-language-switcher/>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #sidenav
+               [mode]="isHandset() ? 'over' : 'side'"
+               [opened]="!isHandset()"
+               class="sidenav"
+               role="navigation"
+               [attr.aria-label]="'toolbar.navigation' | translate">
+    <mat-nav-list>
+      @for (option of options(); track option.label) {
+        <a mat-list-item
+           [routerLink]="option.link"
+           routerLinkActive="active-link"
+           #link="routerLinkActive"
+           [attr.aria-current]="link.isActive ? 'page' : null"
+           (click)="isHandset() && sidenav.close()">
+          <mat-icon matListItemIcon>{{ option.icon }}</mat-icon>
+          <span matListItemTitle>{{ option.label | translate }}</span>
+        </a>
+      }
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content role="main">
+    <router-outlet/>
+  </mat-sidenav-content>
+</mat-sidenav-container>

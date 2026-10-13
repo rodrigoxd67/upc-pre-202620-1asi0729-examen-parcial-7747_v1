@@ -1,1 +1,23 @@
-{}
+{
+  "toolbar": {
+    "title": "plataforma de gestión de centros trailgo",
+    "logo-alt": "logo de trailgo outdoor centers",
+    "toggle-menu": "mostrar u ocultar menú de navegación",
+    "navigation": "navegación principal",
+    "language": "idioma preferido"
+  },
+  "option": {
+    "home": "inicio",
+    "new-reservation": "nueva reserva"
+  },
+  "home": {
+    "title": "inicio",
+    "content": "reservas inteligentes y gestión de capacidad para centros al aire libre.",
+    "my-outdoor-centers": "mis centros al aire libre"
+  },
+  "page-not-found": {
+    "title": "página no encontrada",
+    "content": "la ruta <strong>/{{ invalid_path }}</strong> no fue encontrada",
+    "go-home": "volver al inicio"
+  }
+}

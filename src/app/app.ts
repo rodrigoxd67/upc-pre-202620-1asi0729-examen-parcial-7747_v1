@@ -1,12 +1,12 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Layout } from './shared/presentation/components/layout/layout';
 
 /**
  * root component of the application
  * @author rodrigo andree saavedra flores
  */
 @Component({
-  imports: [RouterOutlet],
+  imports: [Layout],
   selector: 'app-root',
   styleUrl: './app.css',
   templateUrl: './app.html',
