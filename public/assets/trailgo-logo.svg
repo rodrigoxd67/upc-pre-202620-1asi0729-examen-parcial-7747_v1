@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="trailgo logo">
+  <circle cx="32" cy="32" r="31" fill="#f4a261"/>
+  <circle cx="45" cy="19" r="6" fill="#ffe8a3"/>
+  <path d="M4 46 L22 22 L31 34 L39 25 L60 46 A31 31 0 0 1 4 46 Z" fill="#2d6a4f"/>
+  <path d="M22 22 L27 28.5 L24 28 L20.5 31 L18.5 27.5 Z" fill="#ffffff"/>
+  <path d="M14 58 C24 52 22 46 32 44 C40 42 42 38 50 36" fill="none" stroke="#ffe8a3" stroke-width="3" stroke-linecap="round" stroke-dasharray="4 4"/>
+</svg>
