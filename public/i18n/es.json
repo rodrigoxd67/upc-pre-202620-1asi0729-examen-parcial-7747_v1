@@ -30,6 +30,26 @@
     "total-participants": "total de participantes",
     "available-capacity": "capacidad disponible"
   },
+  "reservation": {
+    "new-title": "nueva reserva",
+    "subtitle": "registra participantes en tu centro al aire libre",
+    "activity-type": "tipo de actividad",
+    "participant-name": "nombre del participante",
+    "participants": "participantes",
+    "available-capacity": "capacidad disponible",
+    "weather-temperature": "temperatura actual",
+    "loading-weather": "cargando clima",
+    "create": "crear",
+    "cancel": "cancelar",
+    "error": {
+      "activity-type-required": "el tipo de actividad es obligatorio",
+      "participant-name-required": "el nombre del participante es obligatorio",
+      "participant-name-length": "el nombre del participante debe tener como máximo 60 caracteres",
+      "participants-required": "los participantes son obligatorios",
+      "participants-positive": "los participantes deben ser un entero positivo",
+      "participants-capacity": "los participantes superan la capacidad disponible"
+    }
+  },
   "page-not-found": {
     "title": "página no encontrada",
     "content": "la ruta <strong>/{{ invalid_path }}</strong> no fue encontrada",

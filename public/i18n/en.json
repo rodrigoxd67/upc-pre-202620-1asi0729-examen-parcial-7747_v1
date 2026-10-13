@@ -30,6 +30,26 @@
     "total-participants": "total participants",
     "available-capacity": "available capacity"
   },
+  "reservation": {
+    "new-title": "new reservation",
+    "subtitle": "register participants at your outdoor center",
+    "activity-type": "activity type",
+    "participant-name": "participant name",
+    "participants": "participants",
+    "available-capacity": "available capacity",
+    "weather-temperature": "current temperature",
+    "loading-weather": "loading weather",
+    "create": "create",
+    "cancel": "cancel",
+    "error": {
+      "activity-type-required": "activity type is required",
+      "participant-name-required": "participant name is required",
+      "participant-name-length": "participant name must have at most 60 characters",
+      "participants-required": "participants is required",
+      "participants-positive": "participants must be a positive integer",
+      "participants-capacity": "participants exceed the available capacity"
+    }
+  },
   "page-not-found": {
     "title": "page not found",
     "content": "the path <strong>/{{ invalid_path }}</strong> was not found",
