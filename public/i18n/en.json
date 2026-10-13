@@ -41,6 +41,8 @@
     "loading-weather": "loading weather",
     "create": "create",
     "cancel": "cancel",
+    "created": "reservation for {{ name }} registered",
+    "close": "close",
     "error": {
       "activity-type-required": "activity type is required",
       "participant-name-required": "participant name is required",

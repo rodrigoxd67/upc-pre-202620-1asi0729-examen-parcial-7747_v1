@@ -16,7 +16,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinner } from '@angular/material/progress-spinner';
-import { TranslatePipe } from '@ngx-translate/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { BaseForm } from '../../../../shared/presentation/components/base-form/base-form';
 import { OutdoorCentersStore } from '../../../application/outdoor-centers.store';
 import { WeatherStore } from '../../../../weather/application/weather.store';
@@ -47,6 +48,8 @@ import { Reservation } from '../../../domain/model/reservation.entity';
 export class ReservationForm extends BaseForm {
   #fb = inject(FormBuilder);
   #router = inject(Router);
+  #snackBar = inject(MatSnackBar);
+  #translate = inject(TranslateService);
   readonly store = inject(OutdoorCentersStore);
   readonly weatherStore = inject(WeatherStore);
 
@@ -104,7 +107,14 @@ export class ReservationForm extends BaseForm {
       reservedAt: new Date(),
     });
 
-    this.store.addReservation(reservation, () => this.navigateToHome());
+    this.store.addReservation(reservation, () => {
+      this.#snackBar.open(
+        this.#translate.instant('reservation.created', { name: reservation.participantName }),
+        this.#translate.instant('reservation.close'),
+        { duration: 3000, politeness: 'polite' },
+      );
+      this.navigateToHome();
+    });
   }
 
   cancel() {
