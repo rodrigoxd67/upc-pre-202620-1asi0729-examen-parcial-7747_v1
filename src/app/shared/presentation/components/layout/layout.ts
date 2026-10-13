@@ -40,7 +40,6 @@ export class Layout {
     { initialValue: false },
   );
 
-
   options = signal([
     { link: '/home', label: 'option.home', icon: 'home' },
     { link: '/reservations/new', label: 'option.new-reservation', icon: 'event_available' },

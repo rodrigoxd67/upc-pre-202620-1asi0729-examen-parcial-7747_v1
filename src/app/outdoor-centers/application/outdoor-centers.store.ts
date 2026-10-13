@@ -3,6 +3,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { retry } from 'rxjs';
 import { OutdoorCenter } from '../domain/model/outdoor-center.entity';
 import { Reservation } from '../domain/model/reservation.entity';
+import { OutdoorCenterSummary } from '../domain/model/outdoor-center-summary';
 import { OutdoorCentersApi } from '../infrastructure/outdoor-centers-api';
 
 /**
@@ -25,6 +26,9 @@ export class OutdoorCentersStore {
   readonly loading = this.#loadingSignal.asReadonly();
   readonly #errorSignal = signal<string | null>(null);
   readonly error = this.#errorSignal.asReadonly();
+  readonly outdoorCenterSummaries = computed(() =>
+    this.outdoorCenters().map((center) => this.getOutdoorCenterSummary(center)),
+  );
 
   constructor() {
     this.#loadOutdoorCenters();
@@ -39,15 +43,11 @@ export class OutdoorCentersStore {
     return this.reservations().filter((r) => r.outdoorCenterId === outdoorCenterId);
   }
 
-  getTotalParticipants(outdoorCenterId: number): number {
-    return this.getReservationsByOutdoorCenterId(outdoorCenterId).reduce(
-      (total, reservation) => total + reservation.participants,
-      0,
+  getOutdoorCenterSummary(outdoorCenter: OutdoorCenter): OutdoorCenterSummary {
+    return new OutdoorCenterSummary(
+      outdoorCenter,
+      this.getReservationsByOutdoorCenterId(outdoorCenter.id),
     );
-  }
-
-  getAvailableCapacity(outdoorCenter: OutdoorCenter): number {
-    return outdoorCenter.capacity - this.getTotalParticipants(outdoorCenter.id);
   }
 
   addReservation(reservation: Reservation, onCreated?: () => void): void {

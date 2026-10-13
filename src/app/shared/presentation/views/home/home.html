@@ -1,9 +1,25 @@
 <section class="container-with-spacing" aria-labelledby="home-title">
   <h1 id="home-title" class="title">{{ 'home.title' | translate }}</h1>
   <p class="subtitle">{{ 'home.content' | translate }}</p>
+
   <section aria-labelledby="my-outdoor-centers-title">
     <h2 id="my-outdoor-centers-title" class="section-title">
       {{ 'home.my-outdoor-centers' | translate }}
     </h2>
+
+    @if (store.loading()) {
+      <mat-spinner diameter="40" [attr.aria-label]="'home.loading' | translate"></mat-spinner>
+    }
+    @if (store.error()) {
+      <mat-error role="alert">{{ store.error() }}</mat-error>
+    }
+
+    <mat-grid-list [cols]="columns()" rowHeight="380px" gutterSize="16px">
+      @for (summary of store.outdoorCenterSummaries(); track summary.outdoorCenter.id) {
+        <mat-grid-tile>
+          <app-outdoor-center-summary [summary]="summary"/>
+        </mat-grid-tile>
+      }
+    </mat-grid-list>
   </section>
 </section>

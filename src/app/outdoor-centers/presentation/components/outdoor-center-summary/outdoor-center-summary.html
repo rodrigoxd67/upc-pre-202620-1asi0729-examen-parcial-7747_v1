@@ -1,0 +1,46 @@
+<mat-card class="summary-card" appearance="outlined" role="article"
+          [attr.aria-labelledby]="'center-' + summary().outdoorCenter.id">
+  <mat-card-header class="summary-header">
+    <mat-icon mat-card-avatar aria-hidden="true">landscape</mat-icon>
+    <mat-card-title [id]="'center-' + summary().outdoorCenter.id">
+      {{ summary().outdoorCenter.name }}
+    </mat-card-title>
+    <mat-card-subtitle>
+      {{ 'activity-type.' + summary().outdoorCenter.activityType | translate }} ·
+      {{ 'outdoor-center-summary.capacity' | translate }}: {{ summary().outdoorCenter.capacity }}
+    </mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content class="summary-content">
+    @if (summary().isEmpty) {
+      <p class="empty" role="status">{{ 'outdoor-center-summary.empty' | translate }}</p>
+    } @else {
+      <mat-list role="list" [attr.aria-label]="'outdoor-center-summary.reservations' | translate">
+        @for (reservation of summary().reservations; track reservation.id) {
+          <mat-list-item role="listitem">
+            <mat-icon matListItemIcon aria-hidden="true">person</mat-icon>
+            <span matListItemTitle>{{ reservation.participantName }}</span>
+            <span matListItemMeta class="participants"
+                  [attr.aria-label]="('outdoor-center-summary.participants' | translate) + ' ' + reservation.participants">
+              {{ reservation.participants }}
+            </span>
+          </mat-list-item>
+        }
+      </mat-list>
+    }
+  </mat-card-content>
+
+  <mat-divider></mat-divider>
+  <mat-card-footer class="summary-footer">
+    <div class="indicator">
+      <span class="indicator-value">{{ summary().totalParticipants }}</span>
+      <span class="indicator-label">{{ 'outdoor-center-summary.total-participants' | translate }}</span>
+    </div>
+    <div class="indicator">
+      <span class="indicator-value available" [class.full]="summary().availableCapacity <= 0">
+        {{ summary().availableCapacity }}
+      </span>
+      <span class="indicator-label">{{ 'outdoor-center-summary.available-capacity' | translate }}</span>
+    </div>
+  </mat-card-footer>
+</mat-card>

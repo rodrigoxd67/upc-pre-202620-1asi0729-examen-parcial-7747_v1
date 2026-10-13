@@ -13,7 +13,22 @@
   "home": {
     "title": "inicio",
     "content": "reservas inteligentes y gestión de capacidad para centros al aire libre.",
-    "my-outdoor-centers": "mis centros al aire libre"
+    "my-outdoor-centers": "mis centros al aire libre",
+    "loading": "cargando centros al aire libre"
+  },
+  "activity-type": {
+    "hiking": "senderismo",
+    "running": "carrera",
+    "cycling": "ciclismo",
+    "trekking": "trekking"
+  },
+  "outdoor-center-summary": {
+    "capacity": "capacidad",
+    "reservations": "reservas",
+    "participants": "participantes",
+    "empty": "vacío",
+    "total-participants": "total de participantes",
+    "available-capacity": "capacidad disponible"
   },
   "page-not-found": {
     "title": "página no encontrada",

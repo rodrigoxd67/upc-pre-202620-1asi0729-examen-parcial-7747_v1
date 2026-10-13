@@ -13,7 +13,22 @@
   "home": {
     "title": "home",
     "content": "smart reservations and capacity management for outdoor centers.",
-    "my-outdoor-centers": "my outdoor centers"
+    "my-outdoor-centers": "my outdoor centers",
+    "loading": "loading outdoor centers"
+  },
+  "activity-type": {
+    "hiking": "hiking",
+    "running": "running",
+    "cycling": "cycling",
+    "trekking": "trekking"
+  },
+  "outdoor-center-summary": {
+    "capacity": "capacity",
+    "reservations": "reservations",
+    "participants": "participants",
+    "empty": "empty",
+    "total-participants": "total participants",
+    "available-capacity": "available capacity"
   },
   "page-not-found": {
     "title": "page not found",
