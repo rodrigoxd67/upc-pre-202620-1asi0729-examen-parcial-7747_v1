@@ -1,4 +1,5 @@
 import { Component, inject } from '@angular/core';
+import { UpperCasePipe } from '@angular/common';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 
@@ -8,7 +9,7 @@ import { TranslatePipe, TranslateService } from '@ngx-translate/core';
  */
 @Component({
   selector: 'app-language-switcher',
-  imports: [MatButtonToggleModule, TranslatePipe],
+  imports: [MatButtonToggleModule, TranslatePipe, UpperCasePipe],
   templateUrl: './language-switcher.html',
   styleUrl: './language-switcher.css',
 })

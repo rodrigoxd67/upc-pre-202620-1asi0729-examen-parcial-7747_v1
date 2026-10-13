@@ -5,9 +5,9 @@
                          name="language">
   @for (language of languages; track language) {
     <mat-button-toggle [value]="language"
-                       [aria-label]="language"
+                       [aria-label]="language | uppercase"
                        (click)="useLanguage(language)">
-      {{ language }}
+      {{ language | uppercase }}
     </mat-button-toggle>
   }
 </mat-button-toggle-group>
